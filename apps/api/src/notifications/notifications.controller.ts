@@ -2,7 +2,7 @@ import { Controller, Get, Patch, Param, Req } from '@nestjs/common';
 import { DatabaseService } from '../database/database.service';
 import * as schema from '../database/schema';
 import { eq, desc } from 'drizzle-orm';
-import { Request } from 'express';
+import type { Request } from 'express';
 
 @Controller('notifications')
 export class NotificationsController {

@@ -1,0 +1,17 @@
+{
+  "name": "training-meet",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "api:dev": "npm run start:dev -w apps/api",
+    "mobile:start": "npm run start -w apps/mobile",
+    "db:generate": "npm run generate -w packages/db",
+    "db:push": "npm run push -w packages/db"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

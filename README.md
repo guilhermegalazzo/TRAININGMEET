@@ -76,6 +76,22 @@ docker run -p 3000:3000 --env-file .env training-meet-api
 
 ---
 
+## 🌐 Frontend Web Deployment (Vercel)
+
+To deploy the mobile application as a Web App on Vercel:
+
+1. Create a **New Project** in Vercel.
+2. Select this repository from GitHub.
+3. Set the **Root Directory** to `apps/mobile`.
+4. Leave Framework Preset as `Other`.
+5. Set **Build Command** to `npm run build` and **Output Directory** to `dist`.
+6. Add the following Environment Variables:
+   - `EXPO_PUBLIC_API_URL`
+   - `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY`
+   - `EXPO_PUBLIC_FIREBASE_PROJECT_ID`
+
+---
+
 ## 📱 Features
 - **Smart Calendar**: Manage your training schedule with RRULE support.
 - **Map Explore**: Find trainings nearby using Mapbox.

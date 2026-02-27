@@ -1,6 +1,6 @@
 import { Injectable, ForbiddenException, BadRequestException, OnModuleInit } from '@nestjs/common';
 import { DatabaseService } from '../database/database.service';
-import * as schema from '../../../../packages/db/schema';
+import * as schema from '../database/schema';
 import { eq, and, sql, lt } from 'drizzle-orm';
 import { isAfter, isBefore, subMinutes, addMinutes, subHours } from 'date-fns';
 import { createClerkClient, verifyToken } from '@clerk/backend';

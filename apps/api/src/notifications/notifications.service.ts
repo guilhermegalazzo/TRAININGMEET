@@ -1,6 +1,6 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { DatabaseService } from '../database/database.service';
-import * as schema from '../../../../packages/db/schema';
+import * as schema from '../database/schema';
 import { eq, and, sql, gte } from 'drizzle-orm';
 import * as admin from 'firebase-admin';
 import { ConfigService } from '@nestjs/config';

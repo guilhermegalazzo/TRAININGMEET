@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { DatabaseService } from '../database/database.service';
-import * as schema from '../../../../packages/db/schema';
+import * as schema from '../database/schema';
 import { eq, and, desc } from 'drizzle-orm';
 import { SendMessageDto, CreateThreadDto } from './dto/chat.dto';
 

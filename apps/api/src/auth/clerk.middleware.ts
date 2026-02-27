@@ -1,6 +1,6 @@
 import { Injectable, NestMiddleware, UnauthorizedException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { createClerkClient } from '@clerk/backend';
+import { createClerkClient, verifyToken } from '@clerk/backend';
 import { Request, Response, NextFunction } from 'express';
 
 @Injectable()
@@ -22,8 +22,10 @@ export class ClerkMiddleware implements NestMiddleware {
 
         const token = authHeader.replace('Bearer ', '');
         try {
-            const { userId } = await this.clerkClient.verifyToken(token);
-            (req as any).auth = { userId };
+            const decoded = await verifyToken(token, {
+                secretKey: this.configService.get<string>('CLERK_SECRET_KEY')
+            });
+            (req as any).auth = { userId: decoded.sub };
             next();
         } catch (error) {
             throw new UnauthorizedException('Invalid auth token');

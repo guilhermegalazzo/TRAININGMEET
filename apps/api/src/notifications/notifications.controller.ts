@@ -1,6 +1,6 @@
 import { Controller, Get, Patch, Param, Req } from '@nestjs/common';
 import { DatabaseService } from '../database/database.service';
-import * as schema from '../../../../packages/db/schema';
+import * as schema from '../database/schema';
 import { eq, desc } from 'drizzle-orm';
 import { Request } from 'express';
 

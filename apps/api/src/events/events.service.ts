@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
 import { DatabaseService } from '../database/database.service';
-import * as schema from '../../../../packages/db/schema';
+import * as schema from '../database/schema';
 import { eq, and, or, gte, lte, sql, inArray, ne } from 'drizzle-orm';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
@@ -39,7 +39,8 @@ export class EventsService {
     async findAll(search: SearchEventsDto, clerkUserId?: string) {
         let currentUser: schema.User | null = null;
         if (clerkUserId) {
-            currentUser = await this.getUserByClerkId(clerkUserId);
+            const user = await this.getUserByClerkId(clerkUserId);
+            currentUser = user || null;
         }
 
         const conditions = [];
@@ -196,7 +197,7 @@ export class EventsService {
 
                 // Trigger Notification to Creator
                 await this.notificationsService.sendNotification(event.creatorId, NotificationType.JOIN_REQUEST, {
-                    senderName: user.fullName || 'Alguém',
+                    senderName: user.name || 'Alguém',
                     eventTitle: event.title,
                 });
 

@@ -30,6 +30,7 @@ export const users = pgTable('users', {
   username: varchar('username', { length: 100 }).unique(),
   bio: text('bio'),
   imageUrl: text('image_url'),
+  expoPushToken: varchar('expo_push_token', { length: 255 }),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });

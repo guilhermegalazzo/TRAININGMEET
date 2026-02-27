@@ -4,7 +4,7 @@ import { Button } from '../../src/components/Button';
 import { useAuth, useOAuth } from '@clerk/clerk-expo';
 import * as WebBrowser from 'expo-web-browser';
 import Colors from '../../constants/Colors';
-import { useColorScheme } from '../../../components/useColorScheme';
+import { useColorScheme } from '../../components/useColorScheme';
 import { useRouter } from 'expo-router';
 
 WebBrowser.maybeCompleteAuthSession();

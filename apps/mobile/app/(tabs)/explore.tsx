@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, FlatList } from
 import MapView from '../../src/components/MapView';
 import { TrainingItem } from '../../src/components/TrainingItem';
 import Colors from '../../constants/Colors';
-import { useColorScheme } from '../../../components/useColorScheme';
+import { useColorScheme } from '../../components/useColorScheme';
 import { Map as MapIcon, List as ListIcon } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 
